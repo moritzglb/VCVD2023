@@ -1,8 +1,7 @@
 Name: Moritz Golombek
 Student ID: S2310787008
 
-Sample call statements: 
-
+Sample call statement: 
 Python S2310787008.py --mass=1000, --velocity=50, --friction=0.65
 
 Standard values:
