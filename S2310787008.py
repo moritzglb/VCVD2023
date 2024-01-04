@@ -3,9 +3,13 @@ __doc__ = "Main method"
 #import system libs
 import argparse
 import sys
+from scipy import constants
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib as mpl 
 
 #own modules
-#from examples.plot_example import exec_sample_plot_
+from examples.plot_example import exec_sample_plot_
 
 print("Hello world\n")
 
