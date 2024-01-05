@@ -4,8 +4,8 @@ Student ID: S2310787008
 ------------------------------------------------------------------------------------------------------------
 
 Call Arguments and standard values:
-1. "-m / --mass":         1000 [kg]
-2. "-v / --velocity":       50 [km/h]
+1. -m / --mass:         1000 [kg]
+2. -v / --velocity:       50 [km/h]
 3. -f / --friction:     0.65 [-]     -> initially included choices 0,1 - 0,65 of commonly used friction coefficients, removed for more flexibility (high downforce, etc.)
 4. -a / --inclination:     0 [deg]
 5. -d / --descend_limit: -20 [deg]
@@ -14,14 +14,14 @@ Call Arguments and standard values:
 ------------------------------------------------------------------------------------------------------------
 
 Sample call statements: 
-Python S2310787008.py --help -> shows all available input options and their short forms.
-Python S2310787008.py --mass=1000 -> sets vehicle mass to 1000 kg, uses standard values for the rest.
-Python S2310787008.py --velocity=100 -> sets vehicle speed to 100 km/h, uses standard values for the rest.
+1. Python S2310787008.py --help -> shows all available input options and their short forms.
+2. Python S2310787008.py --mass=1000 -> sets vehicle mass to 1000 kg, uses standard values for the rest.
+3. Python S2310787008.py --velocity=100 -> sets vehicle speed to 100 km/h, uses standard values for the rest.
 ...
-Python S2310787008.py --mass=1000, --velocity=50, --friction=0.65, --inclination=10
-Python S2310787008.py -m1000 -v50 -f0.65 -a10 -> does exaclty the same as the line above, just in short form
-Python S2310787008.py --descend_limit=-45, --ascend_limit=45 -> will give the required stopping distance from 100% descend to 100% ascend, standard values for the rest.
-Python s2310787008.py --mass=1500, --velocity=100 -d=-20 -a=20 -> vehicle mass is 1500 kg, velocity is 100 km/h, range of slopes investigated: -20 to 20 deg
+4. Python S2310787008.py --mass=1000, --velocity=50, --friction=0.65, --inclination=10
+5. Python S2310787008.py -m1000 -v50 -f0.65 -a10 -> does exaclty the same as the line above, just in short form
+6. Python S2310787008.py --descend_limit=-45, --ascend_limit=45 -> will give the required stopping distance from 100% descend to 100% ascend, standard values for the rest.
+7. Python s2310787008.py --mass=1500, --velocity=100 -d=-20 -a=20 -> vehicle mass is 1500 kg, velocity is 100 km/h, range of slopes investigated: -20 to 20 deg
 
 ------------------------------------------------------------------------------------------------------------
 
