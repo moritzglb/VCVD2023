@@ -99,7 +99,7 @@ plt.title ('Stopping distance over Incline')
 plt.xlabel ('angle [deg]')
 plt.ylabel ('stopping distance [m]')
 plt.grid (True)
-#plt.show()
+plt.show()
 
 #terminate program
 sys.exit()
