@@ -33,6 +33,6 @@ How the problem is solved:
 
 7.  The last step is setting the correct labels and plot settings so the result is displayed correctly. The matplotlib.org help-site was used to find the correct arguments.
 
-8.  Besides the graphs the user can also get the most useful information from the console. Values like the entered variables, stopping distance, deceleration and stopping time are displayed.
+8.  Besides the graphs the user can also get the most useful information from the console. The entered variables, stopping distance, deceleration and stopping time are displayed.
     The standard "Rule-of-Thumb" formula for the calculation of an emergency braking distance is also implemented and given as an output for comparison to the user.
     This is done without and with a reaction time, while the calculations above show the distance needed from fully applied brakes to stand-still. 
