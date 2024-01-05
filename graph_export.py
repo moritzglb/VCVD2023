@@ -51,7 +51,7 @@ def exec_plot():
     plt.tight_layout()
 
     #export the plot to the main directory
-    plt.savefig(filename, dpi=300, format='pdf', papertype='a4')
+    plt.savefig(filename, dpi=300, format='pdf')
 
     #display the plot if user likes to
     plt.show() 
