@@ -18,6 +18,7 @@ def exec_plot():
     mass, velocity, friction, incline, low_angle, high_angle, filename = call_arg()
 
     #setting the plot title, including the key values used
+    plt.figure(figsize=(10,8))
     plt.suptitle (f'Results for v={round(in_speed,2)} m/s, m={round(mass,2)} kg, incline={round(incline,2)} deg, my={round(friction,2)}')
     
     #specifiying the fist plot parameters (position, x, y)
