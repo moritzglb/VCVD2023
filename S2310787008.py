@@ -55,7 +55,7 @@ print ("The time needed to stop is", stopping_time, "s")
 
 #setting the length of the x-axis to the duration of the braking manoeuvre
 time = np.linspace(0,stopping_time)
-
+angle = np.linspace(-20,50)
 #===============
 #velocity during breaking manoeuvre
 def current_velocity(time):
@@ -68,25 +68,32 @@ def current_distance(time):
   current_distance.__doc__="calculation of the distance traveled so far under braking"
   return (deceleration*time**2)/2+in_speed*time
 
-#def distance_rot(time):
-#  distance_rot.__doc__="calculation of the distance required according to Rule of Thumb"
-#  return 
+def total_distance(angle):
+  total_distance.__doc__="calculation of the total stopping distance depending on the incline"
+  return  (in_speed**2)/(2*constants.g*(args.friction*np.cos(np.radians(angle))+np.sin(np.radians(angle))))
 
 #===============
 #supplying the desired graph plot settings
 #based on
 #source: https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplots_demo.html
-fig, (ax1,ax2) = plt.subplots(1,2)
-ax1.grid (True)
-ax2.grid (True)
-ax1.plot(time, current_velocity(time))
-ax2.plot(time, current_distance(time), distance_rot)
-ax1.set_xlabel ('time [s]')
-ax2.set_xlabel ('time [s]')
-ax1.set_ylabel ('velocity [m/s]')
-ax2.set_ylabel ('distance [m]')
-ax1.set_title ('Velocity over Time')
-ax2.set_title ('Distance over Time')
+plt.subplot(2,2,1)
+plt.plot (time, current_velocity(time))
+plt.title ('Velocity over Time')
+plt.xlabel ('time [s]')
+plt.ylabel ('velocity [m/s]')
+plt.grid (True)
+plt.subplot(2,2,2)
+plt.plot (time, current_distance(time), distance_rot)
+plt.title ('Distance over Time')
+plt.xlabel ('time [s]')
+plt.ylabel ('distance [m]')
+plt.grid (True)
+plt.subplot(2,1,2)
+plt.plot (angle,total_distance(angle))
+plt.title ('Stopping distance over Incline')
+plt.xlabel ('angle [deg]')
+plt.ylabel ('stopping distance [m]')
+plt.grid (True)
 plt.show()
 
 #terminate program
