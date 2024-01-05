@@ -3,7 +3,6 @@ __doc__ = "Main method for the calculations"
 #import system libs
 import argparse
 import sys
-import math
 #----
 #copy code
 #source: https://matplotlib.org/stable/users/explain/quick_start.html
@@ -22,28 +21,34 @@ from scipy import constants
 #source: https://docs.python.org/3/library/argparse.html
 parser = argparse.ArgumentParser(description="Process some integers.")
 #listing all call arguments of the program, consisting of mass, velocity, friction and inclination 
-parser.add_argument("--mass", type=int, default=1000, help="mass of vehicle in kg")
-parser.add_argument("--velocity", type=int, default=50, help="initial velocity of vehicle in km/h")
-parser.add_argument("--friction", type=int, default=0.65, choices=(0.1, 0.2, 0.4, 0.65), help="friction coefficient of surface")
-parser.add_argument("--inclination", type=int, default=0, help="inclination of surface in deg")
+parser.add_argument("-m", "--mass", type=int, default=1000, help="mass of vehicle in kg")
+parser.add_argument("-v", "--velocity", type=int, default=50, help="initial velocity of vehicle in km/h")
+parser.add_argument("-f", "--friction", type=int, default=0.65, help="friction coefficient of surface")
+parser.add_argument("-a", "--inclination", type=int, default=0, help="inclination of surface in deg")
+parser.add_argument("-d", "--low_angle", type=int, default=-20, help="sets the steepes descend angle to be calculated")
+parser.add_argument("-u", "--high_angle", type=int, default=45, help="sets the steepes ascend angle to be calculated")
 args = parser.parse_args()
 
 #display input values to user for confirmation
-print ("Your chosen vehicle mass is",args.mass, "kg")
-print ("Your chosen vehicle speed is",args.velocity, "km/h")
-print ("Your chosen friction coefficient is",args.friction)
-print ("Your chosen inclination is",args.inclination, "deg")
+print ("Values for Calculation:")
+print ("Vehicle mass is",args.mass, "kg")
+print ("Vehicle speed is",args.velocity, "km/h")
+print ("Friction coefficient is",args.friction)
+print ("Slope is",args.inclination, "deg")
+print ("Range of angles for the slope is", args.low_angle, "to", args.high_angle, "deg")
+print ("")
 
 #convert inputs to correct units
 in_speed = args.velocity*constants.kmh
-incline = math.radians(args.inclination)
+incline = np.radians(args.inclination)
 
 #calculate stopping distance for braking manoeuvre
-stopping_distance = (in_speed**2)/(2*constants.g*(args.friction*math.cos(incline)+math.sin(incline)))
+stopping_distance = (in_speed**2)/(2*constants.g*(args.friction*np.cos(incline)+np.sin(incline)))
 print ("The stopping distance is", stopping_distance,"m")
 
 distance_rot = 0.5*(args.velocity/10)**2
 print ("The emergency brake stopping distance according to the RoT would be", distance_rot, "m (including reaction time:", distance_rot+(args.velocity/10)*3, "m)")
+print ("")
 
 #calculate deceleration during braking manoeuvre
 deceleration = (0**2-in_speed**2)/(2*stopping_distance)
@@ -55,7 +60,7 @@ print ("The time needed to stop is", stopping_time, "s")
 
 #setting the length of the x-axis to the duration of the braking manoeuvre
 time = np.linspace(0,stopping_time)
-angle = np.linspace(-20,50)
+angle = np.linspace(args.low_angle,args.high_angle)
 #===============
 #velocity during breaking manoeuvre
 def current_velocity(time):
@@ -94,7 +99,7 @@ plt.title ('Stopping distance over Incline')
 plt.xlabel ('angle [deg]')
 plt.ylabel ('stopping distance [m]')
 plt.grid (True)
-plt.show()
+#plt.show()
 
 #terminate program
 sys.exit()

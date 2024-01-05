@@ -1,14 +1,22 @@
 Name: Moritz Golombek
 Student ID: S2310787008
 
-Sample call statement: 
-Python S2310787008.py --mass=1000, --velocity=50, --friction=0.65, --inclination=10
+Call Arguments and standard values:
+-m / --mass:       1000 [kg]
+-v / --velocity:     50 [km/h]
+-f / --friction:   0.65 [-]     -> initially included choices 0,1 - 0,65 of commonly used friction coefficients, removed for more flexibility (high downforce, etc.)
+-a / --inclination:   0 [deg]
+-d / --low_angle:   -20 [deg]
+-u / --high_angle:   45 [deg]
 
-Standard values:
-- mass:         1000 [kg]
-- velocity:     50 [km/h]
-- friction:     0.65 [-]
-- inclination:  0 [deg]
+Sample call statements: 
+Python S2310787008.py --help -> shows all available input options and their short forms.
+Python S2310787008.py --mass=1000 -> sets vehicle mass to 1000 kg, uses standard values for the rest.
+Python S2310787008.py --velocity=100 -> sets vehicle speed to 100 km/h, uses standard values for the rest.
+...
+Python S2310787008.py --mass=1000, --velocity=50, --friction=0.65, --inclination=10
+Python S2310787008.py -m1000 -v50 -f0.65 -a10 -> does exaclty the same as the line above, just in short form
+Python S2310787008.py --low_angle=-45, --high_angle=45 -> will give the required stopping distance from 100% descend to 100% ascend, standard values for the rest.
 
 How the problem is solved: 
 
@@ -36,3 +44,6 @@ How the problem is solved:
 8.  Besides the graphs the user can also get the most useful information from the console. The entered variables, stopping distance, deceleration and stopping time are displayed.
     The standard "Rule-of-Thumb" formula for the calculation of an emergency braking distance is also implemented and given as an output for comparison to the user.
     This is done without and with a reaction time, while the calculations above show the distance needed from fully applied brakes to stand-still. 
+
+9.  A stopping distance over time graph was added. This was done by using the formula presented above for the stopping distance with a variable angle. 
+    The user can also alter the range of angles calculated by calling the --lowang= and --highang= arguments, shorts: -l & -h. The result is also plotted with the two other graphs.
