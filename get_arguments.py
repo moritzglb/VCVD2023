@@ -16,7 +16,7 @@ def call_arg():
     parser.add_argument("-a", "--inclination", type=int, default=0, help="slope of surface in deg")
     parser.add_argument("-d", "--descend_limit", type=int, default=-20, help="sets the steepes descend angle to be calculated")
     parser.add_argument("-u", "--ascend_limit", type=int, default=45, help="sets the steepes ascend angle to be calculated")
-    parser.add_argument("--filename", type=str, default="example_plot", help="sets the file name for the plot .pdf export")
+    parser.add_argument("-n","--filename", type=str, default="example_plot.pdf", help="sets the file name for the plot .pdf export")
     args = parser.parse_args()
 
     #self-control//print out the chosen file name for the graph export 
