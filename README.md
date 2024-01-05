@@ -10,6 +10,7 @@ Call Arguments and standard values:
 4. -a / --inclination:     0 [deg]
 5. -d / --descend_limit: -20 [deg]
 6. -u / --ascend_limit:   45 [deg]
+7. -n / --filename:   example_plot 
 
 ------------------------------------------------------------------------------------------------------------
 
