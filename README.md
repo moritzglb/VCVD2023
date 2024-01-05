@@ -4,12 +4,12 @@ Student ID: S2310787008
 ------------------------------------------------------------------------------------------------------------
 
 Call Arguments and standard values:
--m / --mass:         1000 [kg]
--v / --velocity:       50 [km/h]
--f / --friction:     0.65 [-]     -> initially included choices 0,1 - 0,65 of commonly used friction coefficients, removed for more flexibility (high downforce, etc.)
--a / --inclination:     0 [deg]
--d / --descend_limit: -20 [deg]
--u / --ascend_limit:   45 [deg]
+1. "-m / --mass":         1000 [kg]
+2. "-v / --velocity":       50 [km/h]
+3. -f / --friction:     0.65 [-]     -> initially included choices 0,1 - 0,65 of commonly used friction coefficients, removed for more flexibility (high downforce, etc.)
+4. -a / --inclination:     0 [deg]
+5. -d / --descend_limit: -20 [deg]
+6. -u / --ascend_limit:   45 [deg]
 
 ------------------------------------------------------------------------------------------------------------
 
