@@ -57,4 +57,7 @@ How the problem is solved:
     The user can also alter the range of angles calculated by calling the --descend_limit= and --ascend_limit= arguments, shorts: -d & -a. 
     The result is plotted together with the two other graphs.
 
+10. There is no LUT used for the road types and road conditions as there are no hardcoded values allowed. 
+    The application could be extended towards this easily though referencing the string-inputs of the user to a if-function through the arg-parser.
+    The formula does not account for drag-force and should be seen as a simplification. 
 ------------------------------------------------------------------------------------------------------------

@@ -12,7 +12,7 @@ def call_arg():
     #listing all call arguments of the program, consisting of mass, velocity, friction, incline, lowest and highest angle and plot filename 
     parser.add_argument("-m", "--mass", type=int, default=1000, help="mass of vehicle in kg")
     parser.add_argument("-v", "--velocity", type=int, default=50, help="initial velocity of vehicle in km/h")
-    parser.add_argument("-f", "--friction", type=int, default=0.65, help="friction coefficient of surface")
+    parser.add_argument("-f", "--friction", type=float, default=0.65, help="friction coefficient of surface")
     parser.add_argument("-a", "--inclination", type=int, default=0, help="slope of surface in deg")
     parser.add_argument("-d", "--descend_limit", type=int, default=-20, help="sets the steepes descend angle to be calculated")
     parser.add_argument("-u", "--ascend_limit", type=int, default=45, help="sets the steepes ascend angle to be calculated")
