@@ -37,27 +37,30 @@ How the problem is solved:
     The final simplification of the formula is: s = v0^2/2*g*(my*cos(p)+sin(p)).
 
 3.  With the stopping distance known, the acceleration (in this case deceleration because of the negative sign) can be calculated. 
-    Derived from the 2nd law of motion s = s0 + v0*t + 1/2*a*t^2 with a = acceleration the formula a = (vf^2-v0^2)/2*s is derived with vf = final velocity, in this case 0 m/s.
+    Derived from the 2nd law of motion s = 1/2*a*t^2 and a = vf-v0/2 with a = acceleration the formula a = (vf^2-v0^2)/2*s is derived with vf = final velocity, in this case 0 m/s.
 
-4.  The relation is then used to calculated the stopping time with t = 2*s/v0. 
+4.  The relation is then used to calculate the stopping time with t = 2*s/v0. 
     The value calculated for the stopping time is then used as boundary range for the plot functions in the linspace-definition.
 
-5.  For velocity / time plot, needing a time-dependant velocity function, the relation a = v/t can be used together with the initial velocity v0. 
+5.  To show that the mass of a vehicle has a substantial impact in real life braking manouevres the required braking force is also displayed to the user. 
+    The formula Fb = m*a with Fb = braking force is used. 
+
+6.  For velocity / time plot, needing a time-dependant velocity function, the relation a = v/t can be used together with the initial velocity v0. 
     The following formula results: v = a*t+v0.
 
-6.  The distance / time plot again uses the 2nd law of motion with the resulting formula being used: s = 1/2*a*t^2+v0*t.
+7.  The distance / time plot again uses the 2nd law of motion with the resulting formula being used: s = 1/2*a*t^2+v0*t.
 
-7.  The last step is setting the correct labels and plot settings so the result is displayed correctly. The matplotlib.org help-site was used to find the correct arguments.
+8.  The last step is setting the correct labels and plot settings so the result is displayed correctly. The matplotlib.org help-site was used to find the correct arguments.
 
-8.  Besides the graphs the user can also get the most useful information from the console. The entered variables, stopping distance, deceleration and stopping time are displayed.
+9.  Besides the graphs the user can also get the most useful information from the console. The entered variables, stopping distance, deceleration and stopping time are displayed.
     The standard "Rule-of-Thumb" formula for the calculation of an emergency braking distance is also implemented and given as an output for comparison to the user.
     This is done without and with a reaction time, while the calculations above show the distance needed from fully applied brakes to stand-still. 
 
-9.  A stopping distance over time graph was added. This was done by using the formula presented above for the stopping distance with a variable angle. 
+10.  A stopping distance over time graph was added. This was done by using the formula presented above for the stopping distance with a variable angle. 
     The user can also alter the range of angles calculated by calling the --descend_limit= and --ascend_limit= arguments, shorts: -d & -a. 
     The result is plotted together with the two other graphs.
 
-10. There is no LUT used for the road types and road conditions as there are no hardcoded values allowed. 
+11. There is no LUT used for the road types and road conditions as there are no hardcoded values allowed. 
     The application could be extended towards this easily though referencing the string-inputs of the user to a if-function through the arg-parser.
     The formula does not account for drag-force and should be seen as a simplification. 
 ------------------------------------------------------------------------------------------------------------

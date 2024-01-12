@@ -3,8 +3,6 @@
 #source: https://matplotlib.org/stable/users/explain/quick_start.html
 import matplotlib.pyplot as plt
 import numpy as np
-import matplotlib as mpl
-from scipy import constants
 
 #import own methods
 from formulas import calc
@@ -14,12 +12,12 @@ from get_arguments import call_arg
 #calling the plot function
 def exec_plot():
     #passing all methods with required variables 
-    deceleration, in_speed, stopping_time, time, angle, current_velocity, current_distance, total_distance = calc()
+    in_speed, time, angle, current_velocity, current_distance, total_distance = calc()
     mass, velocity, friction, incline, low_angle, high_angle, filename = call_arg()
 
     #setting the plot title, including the key values used
     plt.figure(figsize=(10,8))
-    plt.suptitle (f'Results for v={round(in_speed,2)} m/s, m={round(mass,2)} kg, incline={round(incline,2)} deg, my={round(friction,2)}')
+    plt.suptitle (f'Results for v={round(in_speed,2)} m/s, m={round(mass,2)} kg, incline={round(np.degrees(incline))} deg, my={round(friction,2)}')
     
     #specifiying the fist plot parameters (position, x, y)
     plt.subplot(2,2,1)

@@ -22,15 +22,6 @@ def call_arg():
     #self-control//print out the chosen file name for the graph export 
     #print (args.filename)
 
-    #display input values to user for confirmation
-    print ("Values for Calculation:")
-    print (f"Vehicle mass is {round(args.mass,2)} kg")
-    print (f"Vehicle speed is {round(args.velocity,2)} km/h")
-    print (f"Friction coefficient is {round(args.friction,2)}")
-    print (f"Slope is {round(args.inclination,2)} deg")
-    print (f"Range of angles for the slope is {round(args.descend_limit,2)} to {round(args.ascend_limit,2)} deg")
-    print ("")
-
     #converting all call arguments to variables (ease of use for later methods)
     mass = args.mass
     velocity = args.velocity

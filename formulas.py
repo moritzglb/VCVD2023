@@ -8,18 +8,25 @@ from get_arguments import call_arg
 #===============
 #create method to do calculations, this is where the main formulas are 
 def calc():
-    #passing all methods with required variables
+    #passing all required variables from the ArgParse-method
     mass, velocity, friction, incline, low_angle, high_angle, filename = call_arg()
+
+    #display used input values to console for confirmation
+    print ("")
+    print ("Values for Calculation:")
+    print (f"Vehicle mass is {round(mass,2)} kg")
+    print (f"Vehicle speed is {round(velocity,2)} km/h")
+    print (f"Friction coefficient is {round(friction,2)}")
+    print (f"Slope is {round(np.degrees(incline))} deg")
+    print (f"Range of angles for the slope is {round(np.degrees(low_angle))} to {round(np.degrees(high_angle))} deg")
+    print ("")
 
     #converts input to correct units for speed calculation (km/h -> m/s)
     in_speed = velocity*constants.kmh #[m/s]
 
-    #self-control//confirm intermediate values (previously problem with rad vs. deg)      
-    #print (velocity, incline, friction, low_angle, high_angle, np.cos(low_angle), np.cos(high_angle), np.cos(incline))
-
     #calculate stopping distance for braking manoeuvre in m
     stopping_distance = (in_speed**2)/(2*constants.g*(friction*np.cos(incline)+np.sin(incline)))
-    print ("The stopping distance is", stopping_distance,"m")
+    print (f"The stopping distance is {round(stopping_distance,2)} m")
 
     #implementation of "Rule-of-Thumb" (emergency braking). Printing the braking distance and overall distance with reaction time of 3 s
     reaction_time = 3 #[s]
@@ -29,11 +36,16 @@ def calc():
 
     #calculate deceleration during braking manoeuvre in m/s^2
     deceleration = (0**2-in_speed**2)/(2*stopping_distance)
-    print ("The deceleration is", deceleration/constants.g, "G, or", deceleration, "m/s^2")
+    print (f"The deceleration is {deceleration/constants.g} G, or {round(deceleration,2)} m/s^2")
 
     #calculate time needed for braking manoeuvre in s 
     stopping_time = 2*stopping_distance/in_speed
-    print ("The time needed to stop is", stopping_time, "s")
+    print (f"The time needed to stop is {round(stopping_time,2)} s")
+    print ("")
+
+    #showing the relevance of mass for realistic braking manoeuvres
+    stopping_force = mass*deceleration
+    print (f'the required braking force is {-1*round(stopping_force)} N for a vehicle mass of {mass} kg ')
     print ("")
 
     #setting the boundaries for the x-axis to the duration of the braking manoeuvre in s (start of braking to standstill)
@@ -51,4 +63,4 @@ def calc():
     total_distance = (in_speed**2)/(2*constants.g*(friction*np.cos(angle)+np.sin(angle)))
 
     #return all variables needed in other methods
-    return deceleration, in_speed, stopping_time, time, angle, current_velocity, current_distance, total_distance
+    return in_speed, time, angle, current_velocity, current_distance, total_distance
