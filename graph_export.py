@@ -16,6 +16,7 @@ from get_arguments import call_arg
 #===============
 #calling the plot function
 def exec_plot():
+    exec_plot.__doc__ = "convert all calculated values into plots"
     #passing all methods with required variables 
     deceleration, in_speed, stopping_time, time, angle, current_velocity, current_distance, total_distance = calc()
     mass, velocity, friction, incline, low_angle, high_angle, filename = call_arg()

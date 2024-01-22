@@ -5,6 +5,7 @@ import numpy as np
 #===============
 #creating method to get user inputs with the help of argparser
 def call_arg():
+    call_arg.__doc__ = "ArgParser function to collect all user input"
     #setup argparser
     #based on
     #source: https://docs.python.org/3/library/argparse.html

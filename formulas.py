@@ -8,6 +8,7 @@ from get_arguments import call_arg
 #===============
 #create method to do calculations, this is where the main formulas are 
 def calc():
+    calc.__doc__ = "the calculation of all important parameters happens here"
     #passing all methods with required variables
     mass, velocity, friction, incline, low_angle, high_angle, filename = call_arg()
 
