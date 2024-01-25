@@ -7,6 +7,7 @@ from get_arguments import call_arg
 
 #===============
 #create method to do calculations, this is where the main formulas are 
+___doc___ = "Calculate stopping distance, Rule of Thumb, Deceleration, stopping time"
 def calc():
     """the calculation of all important parameters happens here"""
     #passing all methods with required variables

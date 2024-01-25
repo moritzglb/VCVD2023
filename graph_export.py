@@ -10,6 +10,7 @@ from get_arguments import call_arg
 
 #===============
 #calling the plot function
+___doc___ = "plotting function"
 def exec_plot():
     """convert all calculated values into plots"""
     #passing all methods with required variables
@@ -55,4 +56,3 @@ def exec_plot():
 
     #display the plot if user likes to
     plt.show()
-

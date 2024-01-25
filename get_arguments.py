@@ -4,6 +4,7 @@ import numpy as np
 
 #===============
 #creating method to get user inputs with the help of argparser
+___doc___ = "ArgParser function for user input collection"
 def call_arg():
     """ArgParser function to collect all user input"""
     #setup argparser
